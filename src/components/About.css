@@ -1,0 +1,106 @@
+/* ABOUT */
+.about {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 32px;
+}
+
+.about-content {
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/* TÍTULO */
+.about-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  position: relative;
+  padding-bottom: 12px;
+  text-align: center;
+}
+
+.about-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-show .about-title::after {
+  width: 60px;
+  transition-delay: 0.3s;
+}
+
+/* PÁRRAFOS */
+.about-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  text-align: justify;
+  hyphens: auto;
+}
+
+.about-content p:first-of-type::first-letter {
+  float: left;
+  font-family: 'Playfair Display', serif;
+  font-size: 5.5rem;
+  line-height: 0.8;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-right: 12px;
+  margin-top: 8px;
+  transition: color 1.2s ease;
+}
+
+/* ANIMACIÓN DE ENTRADA */
+.about-content > * {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(12px);
+  will-change: transform, opacity, filter, color;
+  transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), filter 1.2s ease, color 1.2s ease;
+}
+
+.about-show .about-content > * {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.about-show .about-content p {
+  color: var(--text-primary);
+}
+
+.about-show .about-content p:first-of-type::first-letter {
+  color: #D4AF37;
+}
+
+.about-show .about-content > *:nth-child(1) { transition-delay: 0.1s; }
+.about-show .about-content > *:nth-child(2) { transition-delay: 0.3s; }
+.about-show .about-content > *:nth-child(3) { transition-delay: 0.5s; }
+
+.about-hide .about-content > * {
+  opacity: 0;
+  transform: translateY(-16px);
+  filter: blur(8px);
+  color: var(--text-secondary);
+  transition: all 0.5s ease;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .about { padding: 80px 24px; }
+  .about-content p:first-of-type::first-letter { font-size: 4.8rem; margin-top: 4px; }
+}

@@ -1,0 +1,125 @@
+/* CONTACTO */
+.contact {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 32px;
+}
+
+/* LAYOUT */
+.contact-content {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* PÓSTER */
+.contact-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.contact-label {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.contact-email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  margin: 16px 0 24px 0;
+  transition: transform 0.4s ease;
+}
+
+.contact-email:hover {
+  transform: translateX(12px);
+}
+
+.email-serif {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: baseline;
+  line-height: 1;
+  transition: color 0.4s ease;
+  z-index: 1;
+}
+
+.contact-email:hover .email-serif {
+  color: #D4AF37;
+}
+
+.email-dropcap {
+  font-size: 1.6em;
+  font-weight: 300;
+  line-height: 0.7;
+  margin-right: 4px;
+}
+
+.email-cursive {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  color: #D4AF37;
+  line-height: 0.5;
+  transform: translateY(-15px) translateX(10%);
+  z-index: 2;
+}
+
+.contact-email-sub {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-top: 16px;
+}
+
+.contact-email-sub:hover {
+  color: var(--text-primary);
+}
+
+/* ANIMACIÓN DE ENTRADA */
+.contact-main > * {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(12px);
+  will-change: transform, opacity, filter;
+  transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), filter 1.2s ease;
+}
+
+.contact-show .contact-main > * {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.contact-show .contact-main > *:nth-child(1) { transition-delay: 0.1s; }
+.contact-show .contact-main > *:nth-child(2) { transition-delay: 0.3s; }
+.contact-show .contact-main > *:nth-child(3) { transition-delay: 0.5s; }
+
+.contact-hide .contact-main > * {
+  opacity: 0;
+  transform: translateY(-16px);
+  filter: blur(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease, filter 0.5s ease;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .email-cursive {
+    transform: translateY(-10px) translateX(0);
+  }
+}
