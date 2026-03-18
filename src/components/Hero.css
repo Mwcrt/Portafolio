@@ -177,7 +177,7 @@
   transition: opacity 0.5s ease, transform 0.5s ease, filter 0.5s ease;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE  */
 @media (max-width: 768px) {
   .hero { padding: 0 24px; }
   .name-cursive { transform: translateY(-5px) translateX(10px); }
