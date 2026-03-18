@@ -8,6 +8,7 @@
   --text-secondary: #b0b0b0;
   --accent:         #ffffff;
   --nav-bg:         rgba(13, 13, 13, 0.90);
+  --mobile-menu-bg: rgba(13, 13, 13, 0.40);
   --card-bg:        #1a1a1a;
   --border:         #333333;
 }
@@ -19,6 +20,7 @@
   --text-secondary: #2c2c2c;
   --accent:         #000000;
   --nav-bg:         rgba(255, 255, 255, 0.90);
+  --mobile-menu-bg: rgba(255, 255, 255, 0.40);
   --card-bg:        #f8f8f8;
   --border:         #888888;
 }

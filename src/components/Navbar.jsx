@@ -15,6 +15,14 @@ const Navbar = ({ darkMode, setDarkMode, onModalResolve, isAppReady }) => {
   const audioRef = useRef(null);
 
   useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [menuOpen]);
+
+  useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
 
@@ -118,7 +126,7 @@ const Navbar = ({ darkMode, setDarkMode, onModalResolve, isAppReady }) => {
         </div>
       )}
 
-      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
         <div className="navbar-container">
 
           <Link to="home" smooth={true} duration={600} offset={-64} className="navbar-logo">
